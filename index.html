@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cesar Giupponi, Senior iOS Engineer</title>
+<meta name="description" content="Cesar Giupponi is a Senior iOS Engineer in Brazil who builds native iOS apps in Swift and SwiftUI, from architecture to App Store release.">
+<style>
+  :root {
+    --bg: #ffffff; --text: #16181d; --muted: #5d636f; --line: #e6e8ec; --card: #f6f7f9; --accent: #0a7c55;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111317; --text: #eceef2; --muted: #9aa1ad; --line: #262a31; --card: #181b21; --accent: #34d399; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 64px 20px 80px; }
+  h1 { font-size: 40px; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 56px 0 16px; }
+  h3 { font-size: 19px; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .role { font-size: 20px; color: var(--muted); margin-bottom: 20px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-bottom: 14px; }
+  .meta { color: var(--muted); font-size: 15px; margin-bottom: 10px; }
+  ul { margin: 8px 0 0; padding-left: 20px; }
+  li { margin-bottom: 4px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags span { border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; font-size: 14px; }
+  footer { margin-top: 64px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Cesar Giupponi</h1>
+    <div class="role">Senior iOS Engineer · Native iOS in Swift and SwiftUI</div>
+    <p>I build native iOS apps end to end: architecture, SwiftUI screens from Figma, push notifications, CI/CD, TestFlight and App Store releases. I have 10+ years in software, 8+ of them on iOS, across fintech, banking and social apps. I live in Brazil and work remotely with US teams.</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/cesargiupponi/">LinkedIn</a>
+      <a href="https://github.com/cesargiupponi">GitHub</a>
+      <a href="https://apps.apple.com/us/app/kickflow-futebol-e-resultados/id6778988090">KickFlow on the App Store</a>
+    </div>
+  </header>
+
+  <h2>Apps</h2>
+
+  <div class="card">
+    <h3>KickFlow</h3>
+    <div class="meta">My own football app · <a href="https://apps.apple.com/us/app/kickflow-futebol-e-resultados/id6778988090">App Store</a> · <a href="https://kickflow.app.br">kickflow.app.br</a></div>
+    <p>Live scores, standings and notifications, built alone in Swift and SwiftUI with a TypeScript backend on Firebase.</p>
+    <ul>
+      <li>MVVM with a service layer: Sendable service protocols injected through the environment, so tests use mocks.</li>
+      <li>Live data from Firestore listeners exposed as AsyncStream. Swift 6 strict concurrency.</li>
+      <li>Live Activity with push to start, App Intents, deep links, StoreKit 2 and Remote Config feature flags.</li>
+      <li>Fastlane to TestFlight. Unit and snapshot tests with Swift Testing.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Ghost Social</h3>
+    <div class="meta">Founding iOS Engineer · <a href="https://apps.apple.com/us/app/ghost-social-meet-your-people/id6759635466">App Store</a></div>
+    <p>A social app from a San Francisco startup. As the only iOS engineer, I built it from zero to the App Store.</p>
+    <ul>
+      <li>Modular SwiftUI architecture with Swift Package Manager and Swift Concurrency.</li>
+      <li>Firebase auth, APNs push notifications and real-time social features.</li>
+      <li>CI/CD with GitHub Actions and Fastlane, TestFlight and App Store releases.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>MyBambu</h3>
+    <div class="meta">Senior iOS Engineer · US fintech</div>
+    <ul>
+      <li>Launched Bambu Pay with TabaPay: payment success up 30%, $1.18M processed in the first week.</li>
+      <li>Rewards redesign from Figma: engagement up 25%.</li>
+      <li>Firebase Remote Config feature flags for payments: 50% less dependency on new app releases.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Itaú</h3>
+    <div class="meta">Senior iOS Engineer · Largest private bank in Latin America</div>
+    <ul>
+      <li>Built 6 reusable iOS frameworks for digital customer service in the main banking app: development time down 30%.</li>
+      <li>Chat for 1M+ customers: errors down from 28% to 1%.</li>
+      <li>An app for managers and directors, from scratch to production in 11 months.</li>
+      <li>Mentored 10+ engineers and reviewed 100+ pull requests.</li>
+    </ul>
+  </div>
+
+  <h2>A problem I solved</h2>
+  <div class="card">
+    <h3>Keeping the Lock Screen score correct</h3>
+    <p>In KickFlow, Live Activity updates ran in independent tasks, so two updates could finish in the wrong order and the Lock Screen showed an old score. A fast follow toggle could also lose the push token, and pushes stopped with no error.</p>
+    <p>The fix: a chain of tasks for each match, so start, update, end and token registration run in order, and a freshness check that compares match phase, elapsed time and stoppage time as an ordered tuple instead of one packed number.</p>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="tags">
+    <span>Swift</span><span>SwiftUI</span><span>UIKit</span><span>Swift Concurrency</span><span>Combine</span><span>MVVM</span><span>Swift Package Manager</span><span>APNs</span><span>Live Activities</span><span>App Intents</span><span>WidgetKit</span><span>StoreKit 2</span><span>Firebase</span><span>REST and WebSockets</span><span>XCTest</span><span>Swift Testing</span><span>Snapshot tests</span><span>Fastlane</span><span>GitHub Actions</span><span>Xcode Cloud</span><span>TestFlight</span><span>App Store Connect</span><span>Accessibility</span>
+  </div>
+
+  <footer>Cesar Giupponi · Brazil · Open to remote, full-time roles as a contractor.</footer>
+</main>
+</body>
+</html>
