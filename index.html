@@ -5,121 +5,240 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cesar Giupponi, Senior iOS Engineer</title>
 <meta name="description" content="Cesar Giupponi is a Senior iOS Engineer in Brazil who builds native iOS apps in Swift and SwiftUI, the backend they need, and AI features with LLMs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff; --text: #16181d; --muted: #5d636f; --line: #e6e8ec; --card: #f6f7f9; --accent: #0a7c55;
+    --bg: #eef0ee; --surface: #f8f9f8; --ink: #141816; --muted: #5b635f; --line: #d5dad6;
+    --kf-bg: #07130d; --kf-ink: #e9f2ec; --kf-muted: #9fb3a7; --kf-accent: #22c55e;
+    --rr-bg: #a9452f; --rr-ink: #fbf3e6; --rr-muted: #f1d3c4; --rr-card: #f6efe3;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #111317; --text: #eceef2; --muted: #9aa1ad; --line: #262a31; --card: #181b21; --accent: #34d399; }
+    :root { --bg: #181c1a; --surface: #1f2421; --ink: #e8ece9; --muted: #9aa49f; --line: #2f3632; }
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 64px 20px 80px; }
-  h1 { font-size: 40px; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
-  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 56px 0 16px; }
-  h3 { font-size: 19px; margin: 0 0 4px; }
-  p { margin: 0 0 12px; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .role { font-size: 20px; color: var(--muted); margin-bottom: 20px; }
-  .links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 20px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-bottom: 14px; }
-  .meta { color: var(--muted); font-size: 15px; margin-bottom: 10px; }
-  ul { margin: 8px 0 0; padding-left: 20px; }
-  li { margin-bottom: 4px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tags span { border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; font-size: 14px; }
-  footer { margin-top: 64px; color: var(--muted); font-size: 14px; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.6 "Instrument Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 4px; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero { padding: 88px 24px 72px; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end; }
+  .hero h1 { font-size: clamp(48px, 8vw, 96px); line-height: 0.95; font-weight: 700; font-stretch: 78%; letter-spacing: -0.02em; margin: 0 0 24px; }
+  .hero .lede { font-size: 21px; line-height: 1.45; max-width: 34em; margin: 0 0 28px; }
+  .hero .lede strong { font-weight: 600; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px 28px; font-weight: 600; }
+  .shelf { display: flex; gap: 20px; }
+  .shelf a { display: grid; justify-items: center; gap: 10px; text-decoration: none; font-size: 15px; font-weight: 600; }
+  .shelf img { width: 112px; height: 112px; border-radius: 25px; box-shadow: 0 0 0 1px var(--line); }
+  .shelf small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: -8px; }
+
+  /* App bands */
+  .app { padding: 80px 0; }
+  .app .grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+  .app h2 { font-size: clamp(36px, 5vw, 56px); line-height: 1; font-weight: 700; font-stretch: 85%; letter-spacing: -0.015em; margin: 0 0 6px; }
+  .app .kind { margin: 0 0 24px; font-size: 17px; }
+  .app p { margin: 0 0 16px; max-width: 36em; }
+  .app ul { margin: 20px 0 28px; padding: 0; list-style: none; }
+  .app li { padding: 10px 0; border-top: 1px solid; font-size: 16px; }
+  .app li:last-child { border-bottom: 1px solid; }
+  .store { display: inline-block; font-weight: 600; padding: 10px 18px; border-radius: 999px; text-decoration: none; margin: 0 8px 8px 0; }
+  .shots { display: flex; gap: 16px; justify-content: flex-end; padding-bottom: 32px; }
+  .shots img { width: calc((100% - 32px) / 3); max-width: 220px; aspect-ratio: 400 / 869; object-fit: cover; border-radius: 22px; }
+  .shots img:nth-child(2) { transform: translateY(32px); }
+
+  .kickflow { background: var(--kf-bg); color: var(--kf-ink); }
+  .kickflow .kind { color: var(--kf-muted); }
+  .kickflow li { border-color: #1d3327; }
+  .kickflow .store { background: var(--kf-accent); color: #04140b; }
+  .kickflow .store.ghost { background: transparent; color: var(--kf-ink); box-shadow: inset 0 0 0 1px #2c4a39; }
+
+  .rowrest { background: var(--rr-bg); color: var(--rr-ink); }
+  .rowrest h2 { font-family: Georgia, "Times New Roman", serif; font-stretch: normal; letter-spacing: -0.01em; }
+  .rowrest .kind { color: var(--rr-muted); }
+  .rowrest li { border-color: #c4705b; }
+  .rowrest .store { background: var(--rr-card); color: #6e2a1b; }
+  .rowrest .store.ghost { background: transparent; color: var(--rr-ink); box-shadow: inset 0 0 0 1px #d38a75; }
+
+  /* Quiet sections */
+  section.plain { padding: 80px 0 0; }
+  section.plain h2 { font-size: 28px; font-weight: 700; font-stretch: 85%; margin: 0 0 28px; }
+  .work { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .work li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .work .when { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 15px; padding-top: 3px; }
+  .work h3 { font-size: 19px; margin: 0 0 4px; font-weight: 600; }
+  .work h3 span { font-weight: 400; color: var(--muted); }
+  .work p { margin: 0; max-width: 46em; }
+  .work .ghost-icon { width: 22px; height: 22px; border-radius: 6px; display: inline-block; vertical-align: -4px; margin-right: 8px; }
+
+  .story { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px; max-width: 760px; }
+  .story h3 { font-size: 21px; margin: 0 0 12px; }
+  .story p { margin: 0 0 12px; }
+  .story p:last-child { margin: 0; }
+
+  .skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+  .skills h3 { font-size: 17px; margin: 0 0 8px; }
+  .skills p { margin: 0; color: var(--muted); }
+
+  footer { padding: 96px 0 64px; }
+  footer p { font-size: clamp(24px, 3.4vw, 36px); line-height: 1.2; font-weight: 600; font-stretch: 85%; margin: 0 0 20px; max-width: 22em; }
+
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; padding-top: 56px; gap: 32px; }
+    .shelf { order: -1; }
+    .shelf img { width: 84px; height: 84px; border-radius: 19px; }
+    .app { padding: 64px 0; }
+    .app .grid { grid-template-columns: 1fr; gap: 40px; }
+    .shots { justify-content: flex-start; }
+    .work li { grid-template-columns: 1fr; gap: 4px; }
+    .skills { grid-template-columns: 1fr; gap: 24px; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <header>
+
+<header class="wrap hero">
+  <div>
     <h1>Cesar Giupponi</h1>
-    <div class="role">Senior iOS Engineer · Swift, SwiftUI · Backend with Node.js, TypeScript and Firebase · AI features with LLMs</div>
-    <p>I build products end to end, from the SwiftUI app to the backend it needs. I have 12+ years in software, 9+ in mobile and 7+ in native iOS, across fintech, banking and AI startups. I ship AI features with LLMs, and I build with AI every day: Claude Code is my main coding agent, inside a spec-driven workflow where I review every change and CI gates every merge. Two of my own apps are live on the App Store. I live in Brazil and work remotely with US teams.</p>
+    <p class="lede"><strong>Senior iOS Engineer.</strong> I build products end to end, from the SwiftUI app to the backend it needs, and I ship AI features with LLMs. 12+ years in software, 7+ in native iOS, across banking, fintech and AI startups. I live in Brazil and work remotely with US teams.</p>
     <div class="links">
       <a href="https://www.linkedin.com/in/cesargiupponi/">LinkedIn</a>
       <a href="https://github.com/cesargiupponi">GitHub</a>
-      <a href="https://apps.apple.com/us/app/kickflow-futebol-e-resultados/id6778988090">KickFlow on the App Store</a>
-      <a href="https://apps.apple.com/us/app/rowrest-crochet-knitting/id6832689022">Rowrest on the App Store</a>
     </div>
-  </header>
-
-  <h2>Apps</h2>
-
-  <div class="card">
-    <h3>KickFlow</h3>
-    <div class="meta">My own football app · <a href="https://apps.apple.com/us/app/kickflow-futebol-e-resultados/id6778988090">App Store</a> · <a href="https://kickflow.app.br">kickflow.app.br</a></div>
-    <p>Live scores, standings and notifications, built alone in Swift and SwiftUI with a TypeScript backend on Firebase. From a blank Figma to the App Store in 3 weeks with an AI-first, spec-driven workflow.</p>
-    <ul>
-      <li>MVVM with a service layer: Sendable service protocols injected through the environment, so tests use mocks.</li>
-      <li>Live data from Firestore listeners exposed as AsyncStream. Swift 6 strict concurrency.</li>
-      <li>Live Activity with push to start, App Intents, deep links, StoreKit 2 and Remote Config feature flags.</li>
-      <li>Backend: Cloud Functions in TypeScript ingest live match data into Firestore, with App Check and security rules.</li>
-      <li>Fastlane to TestFlight. Unit and snapshot tests with Swift Testing, 75%+ coverage, 6 GitHub Actions pipelines.</li>
-    </ul>
   </div>
+  <nav class="shelf" aria-label="My apps on the App Store">
+    <a href="#kickflow"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/0a/f8/ab0af8e7-c92c-6f55-bf2b-d0954d06daf1/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/256x256bb.jpg" alt="">KickFlow<small>Football</small></a>
+    <a href="#rowrest"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d6/0a/ff/d60affaf-0578-f427-e265-567c0533b9d7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" alt="">Rowrest<small>Crochet</small></a>
+  </nav>
+</header>
 
-  <div class="card">
-    <h3>Rowrest</h3>
-    <div class="meta">My own crochet and knitting app · <a href="https://apps.apple.com/us/app/rowrest-crochet-knitting/id6832689022">App Store</a> · <a href="https://rowrest.web.app">rowrest.web.app</a></div>
-    <p>Follow the crochet and knitting patterns you already own, one row at a time. Add a PDF, and Rowrest turns the written instructions into a list of rows and saves your place. Live on the App Store since November 2026.</p>
-    <ul>
-      <li>On-device pattern parser that turns PDF text into rows. PDFs never leave the device.</li>
-      <li>SwiftUI for iPhone and iPad, with the original PDF page one tap away.</li>
-      <li>StoreKit 2 with a yearly plan with a free trial and a lifetime purchase.</li>
-      <li>Anonymous usage telemetry only, no tracking. Built with the same AI-first workflow as KickFlow.</li>
-    </ul>
+<section class="app kickflow" id="kickflow" aria-labelledby="kf-title">
+  <div class="wrap grid">
+    <div>
+      <h2 id="kf-title">KickFlow</h2>
+      <p class="kind">My football app, live on the App Store</p>
+      <p>Live scores, standings, lineups and alerts for the Brasileirão, Libertadores and the top European leagues. No ads, no betting. I designed, built and run it alone, from a blank Figma to the App Store in 3 weeks.</p>
+      <ul>
+        <li>SwiftUI, Swift 6 strict concurrency, @Observable MVVM, 75%+ test coverage</li>
+        <li>Live Activities with push to start, App Intents, StoreKit 2, Remote Config flags</li>
+        <li>Backend in TypeScript: Cloud Functions ingest live match data into Firestore</li>
+        <li>Spec-driven, AI-first workflow with Claude Code, 6 GitHub Actions pipelines</li>
+      </ul>
+      <a class="store" href="https://apps.apple.com/us/app/kickflow-futebol-e-resultados/id6778988090">View on the App Store</a>
+      <a class="store ghost" href="https://kickflow.app.br">Website</a>
+    </div>
+    <div class="shots">
+      <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5d/2e/41/5d2e41f0-fdc9-1103-3b64-3c55f15e6ca7/01.png/400x0w.jpg" alt="KickFlow home screen with the next match countdown">
+      <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0c/6f/81/0c6f8169-81bd-b1e7-621a-89d9ac057903/02.png/400x0w.jpg" alt="KickFlow screenshot">
+      <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/79/68/68/7968680f-df80-1d18-89ca-8ba8aec78a2b/03.png/400x0w.jpg" alt="KickFlow screenshot">
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h3>Ghost Social</h3>
-    <div class="meta">Founding Engineer · San Francisco AI startup · <a href="https://apps.apple.com/us/app/ghost-social-meet-your-people/id6759635466">App Store</a></div>
-    <p>An AI startup, today an agentic platform for in-person customer acquisition. As the only iOS engineer, I built its iOS app from zero to the App Store, plus the backend endpoints and AI features it needed.</p>
-    <ul>
-      <li>Modular SwiftUI architecture with Swift Package Manager and Swift Concurrency.</li>
-      <li>Firebase auth, APNs push notifications and real-time social features.</li>
-      <li>AI conversation suggestions, end to end: the SwiftUI screen and a Node.js and TypeScript endpoint that calls an LLM API. Live in production.</li>
-      <li>Contributed to the agentic web platform: Next.js web UI and Node.js backend with LLM workflows.</li>
-      <li>CI/CD with GitHub Actions and Fastlane, TestFlight and App Store releases.</li>
-    </ul>
+<section class="app rowrest" id="rowrest" aria-labelledby="rr-title">
+  <div class="wrap grid">
+    <div>
+      <h2 id="rr-title">Rowrest</h2>
+      <p class="kind">My crochet and knitting app, live on the App Store</p>
+      <p>Follow the patterns you already own, one row at a time. Add a PDF, and Rowrest turns the written instructions into a list of rows and keeps your place. Live since November 2026.</p>
+      <ul>
+        <li>On-device parser that turns PDF text into rows; files never leave the device</li>
+        <li>SwiftUI for iPhone and iPad, with the original PDF page one tap away</li>
+        <li>StoreKit 2: yearly plan with a free trial, and a lifetime purchase</li>
+        <li>Anonymous usage data only, no tracking; same AI-first workflow as KickFlow</li>
+      </ul>
+      <a class="store" href="https://apps.apple.com/us/app/rowrest-crochet-knitting/id6832689022">View on the App Store</a>
+      <a class="store ghost" href="https://rowrest.web.app">Website</a>
+    </div>
+    <div class="shots">
+      <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/67/f1/bc/67f1bc3f-1372-11cc-b2be-beb0ee38397a/1-rows.png/400x0w.jpg" alt="Rowrest showing a pattern as a list of rows, with row 5 highlighted">
+      <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0e/01/10/0e0110c4-5856-80fe-b1b8-0582fc5a315a/2-place.png/400x0w.jpg" alt="Rowrest keeping your place in a pattern">
+      <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/19/ec/12/19ec1218-f6ff-f01f-bb04-1ca1fd15809d/3-original.png/400x0w.jpg" alt="Rowrest showing the original PDF page">
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h3>MyBambu</h3>
-    <div class="meta">Senior iOS Engineer · US fintech</div>
-    <ul>
-      <li>Launched Bambu Pay with TabaPay: payment success up 30%, $1.18M processed in the first week.</li>
-      <li>Rewards redesign from Figma: engagement up 25%.</li>
-      <li>Firebase Remote Config feature flags for payments: 50% less dependency on new app releases.</li>
-    </ul>
-  </div>
+<main class="wrap">
+  <section class="plain" aria-labelledby="work-title">
+    <h2 id="work-title">Work</h2>
+    <ol class="work">
+      <li>
+        <div class="when">Dec 2025 to now</div>
+        <div>
+          <h3><img class="ghost-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/28/e4/42/28e4421f-b689-fbd7-cb0e-3d4ff16e31ad/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/64x64bb.jpg" alt="">Ghost Social <span>Founding Engineer, San Francisco AI startup</span></h3>
+          <p>Built the <a href="https://apps.apple.com/us/app/ghost-social-meet-your-people/id6759635466">iOS app</a> from zero to the App Store as the only iOS engineer. Shipped AI conversation suggestions end to end, from the SwiftUI screen to a Node.js and TypeScript endpoint that calls an LLM. Contributed to the agentic web platform in Next.js.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">May to Dec 2025</div>
+        <div>
+          <h3>MyBambu <span>Senior iOS Engineer, US fintech</span></h3>
+          <p>Launched Bambu Pay: $1.18M processed in launch week and payment success up 30%. Remote Config feature flags cut release dependency by 50%.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">Jan to May 2025</div>
+        <div>
+          <h3>Stone <span>Senior iOS Engineer III</span></h3>
+          <p>Co-led the move of the Jade design system from SwiftUI to Kotlin Multiplatform in production. Component adoption grew from 56% to 63%.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">2019 to 2024</div>
+        <div>
+          <h3>Itaú <span>Senior iOS Engineer, largest private bank in Latin America</span></h3>
+          <p>Chat errors cut from 28% to 1% for 1M+ customers. Built 6 iOS frameworks that cut development time by 30%, and a new app for managers from zero to production in 11 months. Mentored 10+ engineers. Started through NTT DATA in 2019.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">2014 to 2019</div>
+        <div>
+          <h3>TOTVS and Webdutos <span>Mobile and backend developer</span></h3>
+          <p>Shipped a health benefits app to the App Store and Google Play, and built REST APIs, PHP systems and SQL databases for ERP and engineering clients.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
 
-  <div class="card">
-    <h3>Itaú</h3>
-    <div class="meta">Senior iOS Engineer · Largest private bank in Latin America</div>
-    <ul>
-      <li>Built 6 reusable iOS frameworks for digital customer service in the main banking app: development time down 30%.</li>
-      <li>Chat for 1M+ customers: errors down from 28% to 1%.</li>
-      <li>An app for managers and directors, from scratch to production in 11 months.</li>
-      <li>Mentored 10+ engineers and reviewed 100+ pull requests.</li>
-    </ul>
-  </div>
+  <section class="plain" aria-labelledby="story-title">
+    <h2 id="story-title">A problem I solved</h2>
+    <div class="story">
+      <h3>Keeping the Lock Screen score correct</h3>
+      <p>In KickFlow, Live Activity updates ran in independent tasks, so two updates could finish in the wrong order and the Lock Screen showed an old score. A fast follow toggle could also lose the push token, and pushes stopped with no error.</p>
+      <p>The fix: a chain of tasks for each match, so start, update, end and token registration run in order, and a freshness check that compares match phase, elapsed time and stoppage time as an ordered tuple instead of one packed number.</p>
+    </div>
+  </section>
 
-  <h2>A problem I solved</h2>
-  <div class="card">
-    <h3>Keeping the Lock Screen score correct</h3>
-    <p>In KickFlow, Live Activity updates ran in independent tasks, so two updates could finish in the wrong order and the Lock Screen showed an old score. A fast follow toggle could also lose the push token, and pushes stopped with no error.</p>
-    <p>The fix: a chain of tasks for each match, so start, update, end and token registration run in order, and a freshness check that compares match phase, elapsed time and stoppage time as an ordered tuple instead of one packed number.</p>
-  </div>
+  <section class="plain" aria-labelledby="skills-title">
+    <h2 id="skills-title">What I work with</h2>
+    <div class="skills">
+      <div>
+        <h3>iOS</h3>
+        <p>Swift, SwiftUI, UIKit, Swift Concurrency, Combine, MVVM, Swift Package Manager, Live Activities, WidgetKit, App Intents, StoreKit 2, Apple Pay, APNs, Accessibility</p>
+      </div>
+      <div>
+        <h3>Backend</h3>
+        <p>Node.js, TypeScript, Firebase Cloud Functions, Firestore, REST and WebSockets, SQL, Next.js</p>
+      </div>
+      <div>
+        <h3>AI and delivery</h3>
+        <p>LLM integration, Claude Code, spec-driven development, XCTest, Swift Testing, snapshot tests, GitHub Actions, Fastlane, Xcode Cloud, TestFlight</p>
+      </div>
+    </div>
+  </section>
 
-  <h2>Skills</h2>
-  <div class="tags">
-    <span>Swift</span><span>SwiftUI</span><span>UIKit</span><span>Swift Concurrency</span><span>Combine</span><span>MVVM</span><span>Swift Package Manager</span><span>APNs</span><span>Live Activities</span><span>App Intents</span><span>WidgetKit</span><span>StoreKit 2</span><span>Node.js</span><span>TypeScript</span><span>Firebase Cloud Functions</span><span>Firestore</span><span>LLM integration</span><span>Claude Code</span><span>Next.js</span><span>REST and WebSockets</span><span>XCTest</span><span>Swift Testing</span><span>Snapshot tests</span><span>Fastlane</span><span>GitHub Actions</span><span>Xcode Cloud</span><span>TestFlight</span><span>App Store Connect</span><span>Accessibility</span>
-  </div>
-
-  <footer>Cesar Giupponi · Brazil · Open to Senior, Staff or Founding roles in iOS or iOS + backend. Remote.</footer>
+  <footer>
+    <p>Open to Senior, Staff or Founding roles in iOS or iOS + backend. Remote, from Brazil.</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/cesargiupponi/">Message me on LinkedIn</a>
+      <a href="https://github.com/cesargiupponi">GitHub</a>
+    </div>
+  </footer>
 </main>
+
 </body>
 </html>
