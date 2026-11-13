@@ -123,10 +123,10 @@
       <p class="kind">My football app, live on the App Store</p>
       <p>Live scores, standings, lineups and alerts for the Brasileirão, Libertadores and the top European leagues. No ads, no betting. I designed, built and run it alone, from a blank Figma to the App Store in 3 weeks.</p>
       <ul>
-        <li>SwiftUI, Swift 6 strict concurrency, @Observable MVVM, 75%+ test coverage</li>
-        <li>Live Activities with push to start, App Intents, StoreKit 2, Remote Config flags</li>
-        <li>Backend in TypeScript: Cloud Functions ingest live match data into Firestore</li>
-        <li>Spec-driven, AI-first workflow with Claude Code, 6 GitHub Actions pipelines</li>
+        <li>SwiftUI and Swift 6 concurrency, 75%+ test coverage</li>
+        <li>Live Activities and push notifications for match events</li>
+        <li>Backend in TypeScript on Firebase</li>
+        <li>Built alone with an AI-first workflow and CI on every change</li>
       </ul>
       <a class="store" href="https://apps.apple.com/us/app/kickflow-futebol-e-resultados/id6778988090">View on the App Store</a>
       <a class="store ghost" href="https://kickflow.app.br">Website</a>
@@ -146,10 +146,10 @@
       <p class="kind">My crochet and knitting app, live on the App Store</p>
       <p>Follow the patterns you already own, one row at a time. Add a PDF, and Rowrest turns the written instructions into a list of rows and keeps your place. Live since November 2026.</p>
       <ul>
-        <li>On-device parser that turns PDF text into rows; files never leave the device</li>
-        <li>SwiftUI for iPhone and iPad, with the original PDF page one tap away</li>
-        <li>StoreKit 2: yearly plan with a free trial, and a lifetime purchase</li>
-        <li>Anonymous usage data only, no tracking; same AI-first workflow as KickFlow</li>
+        <li>SwiftUI for iPhone and iPad</li>
+        <li>Private by design: patterns stay on the device</li>
+        <li>In-app subscriptions with StoreKit 2</li>
+        <li>Built alone with the same AI-first workflow as KickFlow</li>
       </ul>
       <a class="store" href="https://apps.apple.com/us/app/rowrest-crochet-knitting/id6832689022">View on the App Store</a>
       <a class="store ghost" href="https://rowrest.web.app">Website</a>
@@ -208,8 +208,8 @@
     <h2 id="story-title">A problem I solved</h2>
     <div class="story">
       <h3>Keeping the Lock Screen score correct</h3>
-      <p>In KickFlow, Live Activity updates ran in independent tasks, so two updates could finish in the wrong order and the Lock Screen showed an old score. A fast follow toggle could also lose the push token, and pushes stopped with no error.</p>
-      <p>The fix: a chain of tasks for each match, so start, update, end and token registration run in order, and a freshness check that compares match phase, elapsed time and stoppage time as an ordered tuple instead of one packed number.</p>
+      <p>In KickFlow, Lock Screen updates during a live match could arrive out of order, so fans sometimes saw an old score, and in rare cases match alerts stopped with no error.</p>
+      <p>I found the race condition with Swift Concurrency, made every update for a match run in order, and added a check that drops stale updates. Scores now stay correct through the whole match.</p>
     </div>
   </section>
 
